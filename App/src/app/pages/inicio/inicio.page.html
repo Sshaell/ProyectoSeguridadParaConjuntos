@@ -8,11 +8,14 @@
 
 <ion-content>
   <ion-col>
-      <ion-button expand="full" color="tertiary">
-        Iniciar Sesión
-      </ion-button>
-      <ion-button expand="full">
-        Registro
-      </ion-button>
+    <ion-button expand="full" color="tertiary">
+      <ion-icon slot="start" name="log-in-outline"></ion-icon>
+      <ion-label>Iniciar Sesión</ion-label>
+    </ion-button>
+
+    <ion-button expand="full" routerLink='/registro'>
+      <ion-icon slot=start name="person-add-outline"></ion-icon>
+      <ion-label>Registro</ion-label>
+    </ion-button>
   </ion-col>
 </ion-content>
