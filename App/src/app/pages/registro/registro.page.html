@@ -1,64 +1,70 @@
 <app-header titulo="Registro"></app-header>
 
 <ion-content>
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+    <ion-list>
+      <ion-item class="top-20">
+        <ion-label position="floating" color="secondary">Nombre</ion-label>
+        <ion-input inputmode="text"
+                    type="text"
+                    placeholder="Ingrese su nombre"
+                    [(ngModel)]="usuario.nombreUsuario"
+                    minlength="5"
+                    mode="ios"
+                    name="NombreUsuario"
+                    required>
+        </ion-input>
+      </ion-item>
 
-  <ion-item class="top-20">
-    <ion-label color="secondary">Nombre</ion-label>
-    <ion-input inputmode="text"
-                type="text"
-                placeholder="Ingrese su nombre"
-                maxlength="30"
-                minlength="5"
-                mode="ios"
-                name="NombreUsuario"
-                required="true">
-    </ion-input>
-  </ion-item>
+      <ion-item class="top-20">
+        <ion-label position="floating" color="secondary">Cédula</ion-label>
+        <ion-input inputmode="numeric"
+                    type="number"
+                    placeholder="Ingrese su cédula"
+                    [(ngModel)]="usuario.cedulaUsuario"
+                    minlength="5"
+                    mode="ios"
+                    name="cedulaUsuario"
+                    required>
+        </ion-input>
+      </ion-item>
 
-  <ion-item class="top-20">
-    <ion-label color="secondary">Cédula</ion-label>
-    <ion-input inputmode="numeric"
-                type="number"
-                placeholder="Ingrese su cédla"
-                maxlength="30"
-                minlength="5"
-                mode="ios"
-                name="cedulaUsuario"
-                required="true">
-    </ion-input>
-  </ion-item>
+      <ion-item class="top-20">
+        <ion-label position="floating" color="secondary">Casa</ion-label>
+        <ion-input inputmode="numeric"
+                    type="number"
+                    placeholder="Ingrese el número de su casa"
+                    [(ngModel)]="usuario.casaUsuario"
+                    mode="ios"
+                    name="casaUsuario"
+                    required>
+        </ion-input>
+      </ion-item>
 
-  <ion-item class="top-20">
-    <ion-label color="secondary">Casa</ion-label>
-    <ion-input inputmode="numeric"
-                type="number"
-                placeholder="Ingrese el número de su casa"
-                mode="ios"
-                name="NombreUsuario"
-                required="true">
-    </ion-input>
-  </ion-item>
-
-  <ion-item class="top-20">
-    <ion-label color="secondary">Contraseña</ion-label>
-    <ion-input  pattern="password"
-                type="password"
-                placeholder="Ingrese su contraseña"
-                mode="ios"
-                name="NombreUsuario"
-                required="true">
-    </ion-input>
-  </ion-item>
-
-  <ion-button [routerLink]=''
-              class="top-20"
-              expand="full"
-              color="secondary"
-              shape="round">
-    <ion-icon slot="start" 
-              name="person-add-outline">
-    </ion-icon>
-    <ion-label>Registrarse</ion-label>
-  </ion-button>
+      <ion-item class="top-20">
+        <ion-label  position="floating" color="secondary">Contraseña</ion-label>
+        <ion-input  type="password"
+                    placeholder="Ingrese su contraseña"
+                    [(ngModel)]="usuario.contrasenaUsuario"
+                    mode="ios"
+                    name="contraseñaUsuario"
+                    required>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button routerLink='/iniciar-sesion'
+                class="top-20"
+                expand="full"
+                color="secondary"
+                shape="round"
+                type="submit"
+                [disabled]="formulario.invalid"
+                (click)="presentToast()">
+      <ion-icon slot="start" 
+                name="person-add-outline">
+      </ion-icon>
+      <ion-label>Registrarse</ion-label>
+    </ion-button>
+  </form>
 
 </ion-content>
