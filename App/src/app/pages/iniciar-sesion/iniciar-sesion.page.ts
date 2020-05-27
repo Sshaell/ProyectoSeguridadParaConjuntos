@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -7,17 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IniciarSesionPage implements OnInit {
 
-  tipos: any[] = [
+  tipos = [
     {
       name: 'administrador',
-      link: '/noticias'
+      link: '/control'
     },
     {
       name: 'celador',
-      link: '/controlUsuarios'
+      link: '/control'
     },
     {
-      name: 'usario',
+      name: 'usuario',
       link: '/noticias'
     }
   ];
@@ -28,9 +30,15 @@ export class IniciarSesionPage implements OnInit {
     tipoUsuarioIniciarSesion: ''
   };
 
-  constructor() { }
+  constructor(public navCtrl: NavController, private router: Router) { }
 
   ngOnInit() {
+  }
+
+
+  goTo(){
+    const tiposUsuario = this.usuariosIniciarSesion.tipoUsuarioIniciarSesion;
+    this.router.navigate([tiposUsuario]);
   }
 
 }

@@ -1,0 +1,35 @@
+<app-header titulo="Control Usuarios"></app-header>
+
+<ion-content>
+  <form #formulario>
+    <ion-list>
+      <ion-item>
+        <ion-label>Seleccione la acción que desea realizar</ion-label>
+        <ion-select okText="Ok"
+                    cancelText="Cancelar"
+                    [(ngModel)]="acciones.accion"
+                    name ="accionARealizar">
+          <ion-select-option *ngFor="let actividad of actividades"
+                              value={{actividad.name}}>
+            {{actividad.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Seleccione la persona que va a gestionar</ion-label>
+        <ion-select okText="Ok"
+                    cancelText="Cancelar"
+                    [(ngModel)]="acciones.tipo"
+                    name ="tiposAGestionar">
+          <ion-select-option *ngFor="let tipo of tipos"
+                              value={{tipo.name}}>
+            {{tipo.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+  </form>
+
+</ion-content>
