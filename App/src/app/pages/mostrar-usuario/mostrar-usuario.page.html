@@ -1,0 +1,26 @@
+<app-header titulo="Mostrar usuario"></app-header>
+
+<ion-content>
+  <ion-title>El usuario que acabo de entrar es:</ion-title>
+  <ion-list>
+    <ion-item *ngFor="let user of usuario">
+      <ion-col>
+        <ion-row>
+          <ion-label position="stacked">nombre: {{user.nombre}}</ion-label>
+        </ion-row>
+      </ion-col>
+      
+      <ion-col>
+        <ion-row>
+          <ion-label position="stacked" >Apellido: {{user.apellido}}</ion-label>
+        </ion-row>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-label position="stacked"> casa: {{user.casa}}</ion-label>
+        </ion-row>
+      </ion-col>
+    </ion-item>
+  </ion-list>
+</ion-content>

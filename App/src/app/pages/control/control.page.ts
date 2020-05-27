@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-control',
@@ -34,18 +35,30 @@ export class ControlPage implements OnInit {
     }
   ];
 
-  acciones = {
-    accion: '',
-    tipo: '',
+  recoleccion = {
     nombre: '',
+    apellido: '',
     cedula: '',
-    turno: '',
+    telefono : '',
     casa: '',
+    turno: '',
+    tipo: '',
+    accion: ''
   };
 
-  constructor() { }
+  constructor(public toastCtrl: ToastController) { }
 
   ngOnInit() {
   }
+
+  async presentToast() {
+
+    const toast = await this.toastCtrl.create({
+      message: 'Cambio exitoso',
+      duration: 2000
+    });
+    toast.present();
+  }
+
 
 }

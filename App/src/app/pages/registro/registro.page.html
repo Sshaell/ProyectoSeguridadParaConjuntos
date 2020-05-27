@@ -17,6 +17,20 @@
       </ion-item>
 
       <ion-item class="top-20">
+        <ion-label position="floating" color="secondary">Apellido</ion-label>
+        <ion-input inputmode="text"
+                    type="text"
+                    placeholder="Ingrese su apellido"
+                    [(ngModel)]="usuario.apellidoUsuario"
+                    minlength="5"
+                    mode="ios"
+                    name="ApellidoUsuario"
+                    required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item class="top-20">
         <ion-label position="floating" color="secondary">Cédula</ion-label>
         <ion-input inputmode="numeric"
                     type="number"
@@ -37,6 +51,18 @@
                     [(ngModel)]="usuario.casaUsuario"
                     mode="ios"
                     name="casaUsuario"
+                    required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="top-20">
+        <ion-label position="floating" color="secondary">Teléfono</ion-label>
+        <ion-input inputmode="numeric"
+                    type="number"
+                    placeholder="Ingrese el número telefónico"
+                    [(ngModel)]="usuario.telefonoUsuario"
+                    mode="ios"
+                    name="telefonoUsuario"
                     required>
         </ion-input>
       </ion-item>

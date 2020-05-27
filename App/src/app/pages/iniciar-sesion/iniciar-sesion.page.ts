@@ -16,7 +16,7 @@ export class IniciarSesionPage implements OnInit {
     },
     {
       name: 'celador',
-      link: '/control'
+      link: '/mostrar-usuario'
     },
     {
       name: 'usuario',
@@ -25,7 +25,7 @@ export class IniciarSesionPage implements OnInit {
   ];
 
   usuariosIniciarSesion = {
-    nombreUsuarioIniciarSesion: '',
+    cedulaUsuarioIniciarSesion: '',
     contrasenaUsuarioIniciarSesion: '',
     tipoUsuarioIniciarSesion: ''
   };

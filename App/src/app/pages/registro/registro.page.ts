@@ -12,8 +12,10 @@ export class RegistroPage implements OnInit {
   usuario =
     {
       nombreUsuario: '',
+      apellidoUsuario: '',
       cedulaUsuario: '',
       casaUsuario: '',
+      telefonoUsuario: '',
       contrasenaUsuario: ''
     };
 

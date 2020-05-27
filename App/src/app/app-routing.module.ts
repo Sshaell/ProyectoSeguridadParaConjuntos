@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'control',
     loadChildren: () => import('./pages/control/control.module').then( m => m.ControlPageModule)
+  },
+  {
+    path: 'mostrar-usuario',
+    loadChildren: () => import('./pages/mostrar-usuario/mostrar-usuario.module').then( m => m.MostrarUsuarioPageModule)
   }
 ];
 @NgModule({

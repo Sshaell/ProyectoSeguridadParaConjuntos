@@ -18,14 +18,14 @@
         </ion-list>
 
             <ion-item>
-                <ion-label position="floating" color="secondary">Nombre</ion-label>
-                <ion-input inputmode="text"
-                            type="text"
-                            placeholder="Ingrese su nombre"
-                            [(ngModel)]="usuariosIniciarSesion.nombreUsuarioIniciarSesion"
+                <ion-label position="floating" color="secondary">Cedula</ion-label>
+                <ion-input inputmode="numeric"
+                            type="number"
+                            placeholder="Ingrese su cedula"
+                            [(ngModel)]="usuariosIniciarSesion.cedulaUsuarioIniciarSesion"
                             minlength="5"
                             mode="ios"
-                            name="NombreUsuario"
+                            name="cedulaUsuario"
                             required>
             </ion-input>
         </ion-item>
