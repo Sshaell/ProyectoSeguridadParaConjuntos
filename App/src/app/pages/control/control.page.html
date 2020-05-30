@@ -1,118 +1,82 @@
 <app-header titulo="Control Usuarios"></app-header>
 
 <ion-content>
-  <form #formulario>
-    <ion-list>
-      <ion-item>
-        <ion-label>Seleccione la acción que desea realizar</ion-label>
-        <ion-select okText="Ok"
-                    cancelText="Cancelar"
-                    [(ngModel)]="recoleccion.accion"
-                    name ="accionARealizar">
-          <ion-select-option *ngFor="let actividad of actividades"
-                              value={{actividad.name}}>
-            {{actividad.name}}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
+    <form #formulario (ngSubmit)="crear()">
+        <ion-list>
+            <ion-item>
+                <ion-label>Seleccione la acción que desea realizar</ion-label>
+                <ion-select okText="Ok" cancelText="Cancelar" [(ngModel)]="recoleccion.accion" name="accionARealizar">
+                    <ion-select-option *ngFor="let actividad of actividades" value={{actividad.name}}>
+                        {{actividad.name}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
 
-      <ion-item>
-        <ion-label>Seleccione la persona que va a gestionar</ion-label>
-        <ion-select okText="Ok"
-                    cancelText="Cancelar"
-                    [(ngModel)]="recoleccion.tipo"
-                    name ="tiposAGestionar">
-          <ion-select-option *ngFor="let tipo of tipos"
-                              value={{tipo.name}}>
-            {{tipo.name}}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
-      
-      <ion-item class="top-20">
-        <ion-label position="floating" color="secondary">Nombre</ion-label>
-        <ion-input inputmode="text"
-                    type="text"
-                    placeholder="Ingrese el nombre"
-                    [(ngModel)]="recoleccion.nombre"
-                    minlength="5"
-                    mode="ios"
-                    name="Nombre">
-        </ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label>Seleccione la persona que va a gestionar</ion-label>
+                <ion-select okText="Ok" cancelText="Cancelar" [(ngModel)]="recoleccion.tipo" name="tiposAGestionar">
+                    <ion-select-option *ngFor="let tipo of tipos" value={{tipo.name}}>
+                        {{tipo.name}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
 
-      <ion-item class="top-20">
-        <ion-label position="floating" color="secondary">Apellido</ion-label>
-        <ion-input inputmode="text"
-                    type="text"
-                    placeholder="Ingrese el apellido"
-                    [(ngModel)]="recoleccion.apellido"
-                    minlength="5"
-                    mode="ios"
-                    name="Apellido">
-        </ion-input>
-      </ion-item>
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Nombre</ion-label>
+                <ion-input inputmode="text" type="text" placeholder="Ingrese el nombre" [(ngModel)]="recoleccion.nombre" minlength="5" mode="ios" name="Nombre">
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Apellido</ion-label>
+                <ion-input inputmode="text" type="text" placeholder="Ingrese el apellido" [(ngModel)]="recoleccion.apellido" minlength="5" mode="ios" name="Apellido">
+                </ion-input>
+            </ion-item>
 
 
-      <ion-item class="top-20">
-        <ion-label position="floating" color="secondary">Cédula</ion-label>
-        <ion-input inputmode="numeric"
-                    type="number"
-                    placeholder="Ingrese la cédula"
-                    [(ngModel)]="recoleccion.cedula"
-                    minlength="5"
-                    mode="ios"
-                    name="cedula"
-                    required>
-        </ion-input>
-      </ion-item>
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Cédula</ion-label>
+                <ion-input inputmode="numeric" type="number" placeholder="Ingrese la cédula" [(ngModel)]="recoleccion.cedula" minlength="5" mode="ios" name="cedula" required>
+                </ion-input>
+            </ion-item>
 
-      <ion-item class="top-20">
-        <ion-label position="floating" color="secondary">Casa</ion-label>
-        <ion-input inputmode="numeric"
-                    type="number"
-                    placeholder="Ingrese el número de casa"
-                    [(ngModel)]="recoleccion.casa"
-                    mode="ios"
-                    name="casa">
-        </ion-input>
-      </ion-item>
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Casa</ion-label>
+                <ion-input inputmode="numeric" type="number" placeholder="Ingrese el número de casa" [(ngModel)]="recoleccion.casa" mode="ios" name="casa">
+                </ion-input>
+            </ion-item>
 
-      <ion-item class="top-20">
-        <ion-label position="floating" color="secondary">Teléfono</ion-label>
-        <ion-input inputmode="numeric"
-                    type="number"
-                    placeholder="Ingrese el número telefónico"
-                    [(ngModel)]="recoleccion.telefono"
-                    mode="ios"
-                    name="telefono">
-        </ion-input>
-      </ion-item>
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Teléfono</ion-label>
+                <ion-input inputmode="numeric" type="number" placeholder="Ingrese el número telefónico" [(ngModel)]="recoleccion.telefono" mode="ios" name="telefono">
+                </ion-input>
+            </ion-item>
 
-      <ion-item class="top-20">
-        <ion-label  position="floating" color="secondary">turno</ion-label>
-        <ion-input  type="password"
-                    placeholder="Ingrese su contraseña"
-                    [(ngModel)]="recoleccion.turno"
-                    mode="ios"
-                    name="contraseña">
-        </ion-input>
-      </ion-item>
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Contraseña</ion-label>
+                <ion-input type="password" placeholder="Ingrese su contraseña" [(ngModel)]="recoleccion.contrasena" mode="ios" name="contraseña">
+                </ion-input>
+            </ion-item>
 
-      <ion-button class="top-20"
-                  expand="full"
-                  color="secondary"
-                  shape="round"
-                  type="submit"
-                  [disabled]="formulario.invalid"
-                  (click)="presentToast()">
-        <ion-icon slot="start" 
-                  name="person-add-outline">
-        </ion-icon>
-        <ion-label>Ok</ion-label>
-    </ion-button>
- 
-    </ion-list>
-  </form>
+            <ion-item>
+                <ion-label slot="start">Seleccione el turno del celador</ion-label>
+                <ion-select name="si" [(ngModel)]="recoleccion.turno">
+                    <ion-select-option value='dia'>
+                        Día
+                    </ion-select-option>
+                    <ion-select-option value='noche'>
+                        Noche
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-button class="top-20" expand="full" color="secondary" shape="round" type="submit" [disabled]="formulario.invalid">
+                <ion-icon slot="start" name="person-add-outline">
+                </ion-icon>
+                <ion-label>Ok</ion-label>
+            </ion-button>
+
+        </ion-list>
+    </form>
 
 </ion-content>

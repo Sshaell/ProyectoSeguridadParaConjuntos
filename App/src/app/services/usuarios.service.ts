@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UsuariosService {
 
 	httpOptions: any
-	URL:string = 'http://localhost:8000'
+	URL:string = 'http://192.168.1.5:8000/'
 
 	constructor(private http: HttpClient) {
 		this.httpOptions = {
@@ -20,10 +20,34 @@ export class UsuariosService {
 	registrarNuevoUsuario(data) {
 		return new Promise(resolve => {
 			//console.log(this.httpOptions)
-			this.http.post('registro', data, this.httpOptions).subscribe(data => {
+			this.http.post(this.URL+'api/registro', data, this.httpOptions).subscribe(data => {
 			  resolve(data);
 			}, err => {
 			  console.log(err);
+			});
+		  });
+	}
+
+	loginResidente(data) {
+		return new Promise(resolve => {
+			//console.log(this.httpOptions)
+			this.http.post(this.URL+'api/login_residente', data, this.httpOptions).subscribe(data => {
+			  resolve(data);
+			}, err => {
+			  console.log(err);
+			  resolve(-1)
+			});
+		  });
+	}
+
+	loginAdmin(data) {
+		return new Promise(resolve => {
+			//console.log(this.httpOptions)
+			this.http.post(this.URL+'api/login_admin', data, this.httpOptions).subscribe(data => {
+			  resolve(data);
+			}, err => {
+			  console.log(err);
+			  resolve(-1)
 			});
 		  });
 	}

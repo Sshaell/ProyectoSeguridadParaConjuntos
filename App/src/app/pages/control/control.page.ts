@@ -42,6 +42,7 @@ export class ControlPage implements OnInit {
     telefono : '',
     casa: '',
     turno: '',
+    contrasena: '',
     tipo: '',
     accion: ''
   };
@@ -49,6 +50,10 @@ export class ControlPage implements OnInit {
   constructor(public toastCtrl: ToastController) { }
 
   ngOnInit() {
+  }
+
+  crear() {
+    
   }
 
   async presentToast() {

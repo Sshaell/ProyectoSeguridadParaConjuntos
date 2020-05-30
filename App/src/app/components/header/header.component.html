@@ -1,11 +1,13 @@
 <ion-header no-border translucent>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button text="back" defaultHref="inicio">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="back" defaultHref="inicio">
 
-      </ion-back-button>
-    </ion-buttons>
+            </ion-back-button>
+        </ion-buttons>
 
-    <ion-title text-capitalize> {{ titulo }} </ion-title>
-  </ion-toolbar>
+        <ion-title text-capitalize> {{ titulo }} </ion-title>
+
+        <ion-icon name="exit-outline" slot="end" (click)="logout()"></ion-icon>
+    </ion-toolbar>
 </ion-header>
