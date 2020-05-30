@@ -27,11 +27,7 @@ export class RegistroPage implements OnInit {
 
   ngOnInit() {
   }
-
-  registro() {
-    console.log(usuario)
-  }
-
+  
   async presentToast() {
 
     const toast = await this.toastCtrl.create({
