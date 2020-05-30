@@ -14,8 +14,6 @@ export class EstadoPage implements OnInit {
   claveIngresada: number;
   entradaValida: boolean = false;
   
-
-
   constructor(public alertCtrl: AlertController, private router: Router){}
 
   ngOnInit() {

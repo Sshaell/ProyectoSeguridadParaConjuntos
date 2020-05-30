@@ -14,9 +14,11 @@ export class MostrarUsuarioPage implements OnInit {
     {
       cedula: '' ,
       acceso: '',
+      casa: '',
     };
 
 
+  constructor(private route: ActivatedRoute, private router: Router ) { }
 
   constructor(private route: ActivatedRoute, private router: Router ) { 
     
