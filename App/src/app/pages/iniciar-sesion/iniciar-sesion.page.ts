@@ -39,12 +39,5 @@ export class IniciarSesionPage implements OnInit {
 
   goTo(){
     const tiposUsuario = this.usuariosIniciarSesion.tipoUsuarioIniciarSesion;
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        special: JSON.stringify(this.usuariosIniciarSesion.cedulaUsuarioIniciarSesion)
-      }
-    };
-    this.router.navigate([tiposUsuario], navigationExtras);
+    this.router.navigate([tiposUsuario])
   }
-
-}

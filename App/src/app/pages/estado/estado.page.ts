@@ -14,8 +14,6 @@ export class EstadoPage implements OnInit {
   claveIngresada: number;
   entradaValida: boolean = false;
   
-
-
   constructor(public alertCtrl: AlertController, private router: Router){}
 
   ngOnInit() {
@@ -55,18 +53,8 @@ export class EstadoPage implements OnInit {
     else {
       this.entradaValida = false;
     }
-    this.sendIt();
+
     await input.present();
 }
-
-  sendIt(){
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        special: JSON.stringify(this.entradaValida)
-      }
-    };
-    this.router.navigate(['/mostrar-usuario'], navigationExtras);
-  }
-
 
 }
