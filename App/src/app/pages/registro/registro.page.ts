@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-registro',
@@ -19,9 +20,16 @@ export class RegistroPage implements OnInit {
       contrasenaUsuario: ''
     };
 
-  constructor(public toastCtrl: ToastController) { }
+  constructor(
+    public toastCtrl: ToastController,
+    private userService: UsuariosService
+    ) { }
 
   ngOnInit() {
+  }
+
+  registro() {
+    console.log(usuario)
   }
 
   async presentToast() {
@@ -31,6 +39,12 @@ export class RegistroPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  registro() {
+    this.userService.registrarNuevoUsuario(this.usuario).then(response => {
+      console.log(response)
+    })
   }
 
   async onSubmitTemplate(){

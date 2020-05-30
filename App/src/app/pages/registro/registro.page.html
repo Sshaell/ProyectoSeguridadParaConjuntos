@@ -1,6 +1,55 @@
 <app-header titulo="Registro"></app-header>
 
 <ion-content>
+<<<<<<< HEAD
+    <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+        <ion-list>
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Nombre</ion-label>
+                <ion-input inputmode="text" type="text" placeholder="Ingrese su nombre" [(ngModel)]="usuario.nombreUsuario" minlength="5" mode="ios" name="NombreUsuario" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Apellido</ion-label>
+                <ion-input inputmode="text" type="text" placeholder="Ingrese su apellido" [(ngModel)]="usuario.apellidoUsuario" minlength="5" mode="ios" name="ApellidoUsuario" required>
+                </ion-input>
+            </ion-item>
+
+
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Cédula</ion-label>
+                <ion-input inputmode="numeric" type="number" placeholder="Ingrese su cédula" [(ngModel)]="usuario.cedulaUsuario" minlength="5" mode="ios" name="cedulaUsuario" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Casa</ion-label>
+                <ion-input inputmode="numeric" type="number" placeholder="Ingrese el número de su casa" [(ngModel)]="usuario.casaUsuario" mode="ios" name="casaUsuario" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Teléfono</ion-label>
+                <ion-input inputmode="numeric" type="number" placeholder="Ingrese el número telefónico" [(ngModel)]="usuario.telefonoUsuario" mode="ios" name="telefonoUsuario" required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item class="top-20">
+                <ion-label position="floating" color="secondary">Contraseña</ion-label>
+                <ion-input type="password" placeholder="Ingrese su contraseña" [(ngModel)]="usuario.contrasenaUsuario" mode="ios" name="contraseñaUsuario" required>
+                </ion-input>
+            </ion-item>
+        </ion-list>
+        <ion-button class="top-20" expand="full" color="secondary" shape="round" type="submit" [disabled]="formulario.invalid" (click)="registro()">
+            <ion-icon slot="start" name="person-add-outline">
+            </ion-icon>
+            <ion-label>Registrarse</ion-label>
+        </ion-button>
+    </form>
+
+</ion-content>
+=======
   <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
     <ion-list>
       <ion-item class="top-20">
@@ -78,14 +127,14 @@
         </ion-input>
       </ion-item>
     </ion-list>
-    <ion-button routerLink='/iniciar-sesion'
+    <ion-button 
                 class="top-20"
                 expand="full"
                 color="secondary"
                 shape="round"
                 type="submit"
                 [disabled]="formulario.invalid"
-                (click)="presentToast()">
+                (click)="registro()">
       <ion-icon slot="start" 
                 name="person-add-outline">
       </ion-icon>
@@ -94,3 +143,4 @@
   </form>
 
 </ion-content>
+>>>>>>> master

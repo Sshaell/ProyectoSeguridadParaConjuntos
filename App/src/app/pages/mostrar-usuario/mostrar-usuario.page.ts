@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IniciarSesionPage } from '../iniciar-sesion/iniciar-sesion.page';
+import { EstadoPage } from '../estado/estado.page';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-mostrar-usuario',
@@ -7,24 +10,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MostrarUsuarioPage implements OnInit {
 
-  @Input() usuario : any[] = [
+   usuario:
     {
-      nombre: 'alguine',
-      apellido: 'asd',
-      cedula: 'fdgg',
-      casa: 'asda',
-      telefono: 'werwer234'
-    }
-  ];
+      cedula: '' ,
+      acceso: '',
+    };
 
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private router: Router ) { 
+    this.route.queryParams.subscribe( params => {
+      if (params && params.special) {
+        this.usuario.acceso = (params.special);
+      }
+    });
   }
 
-  setUsuario(usuario){
-    this.usuario.push(usuario);
+  ngOnInit() {
   }
 
 }

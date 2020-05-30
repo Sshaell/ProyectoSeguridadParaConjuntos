@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Router, Routes } from '@angular/router';
+import { Router, Routes, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -20,11 +20,12 @@ export class IniciarSesionPage implements OnInit {
     },
     {
       name: 'usuario',
-      link: '/noticias'
+      link: '/tabs'
     }
   ];
 
   usuariosIniciarSesion = {
+    nombreUsuarioIniciarSesion: '',
     cedulaUsuarioIniciarSesion: '',
     contrasenaUsuarioIniciarSesion: '',
     tipoUsuarioIniciarSesion: ''
@@ -38,7 +39,12 @@ export class IniciarSesionPage implements OnInit {
 
   goTo(){
     const tiposUsuario = this.usuariosIniciarSesion.tipoUsuarioIniciarSesion;
-    this.router.navigate([tiposUsuario]);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.usuariosIniciarSesion.cedulaUsuarioIniciarSesion)
+      }
+    };
+    this.router.navigate([tiposUsuario], navigationExtras);
   }
 
 }

@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'mostrar-usuario',
     loadChildren: () => import('./pages/mostrar-usuario/mostrar-usuario.module').then( m => m.MostrarUsuarioPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   }
 ];
 @NgModule({
