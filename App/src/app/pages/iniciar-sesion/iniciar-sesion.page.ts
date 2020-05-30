@@ -39,5 +39,7 @@ export class IniciarSesionPage implements OnInit {
 
   goTo(){
     const tiposUsuario = this.usuariosIniciarSesion.tipoUsuarioIniciarSesion;
-    this.router.navigate([tiposUsuario])
+    this.router.navigate([tiposUsuario]);
   }
+
+}
