@@ -27,7 +27,11 @@ Route::group(['middleware' => ['cors']], function () {
 
 
     //Admin
-    Route::post('crear_celacho', 'AdministradorController@crearCelacho');
+    Route::posto('crear_celador','AdministradorController@crearCelacho');
+    Route::posto('crear_residente','AdministradorController@crearResidente');
 
+    //celador
+    Route::post('login_celador','CeladorController@login');
+    
 });
 

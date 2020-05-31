@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-control',
@@ -47,13 +48,33 @@ export class ControlPage implements OnInit {
     accion: ''
   };
 
-  constructor(public toastCtrl: ToastController) { }
+  constructor(public toastCtrl: ToastController, 
+              private usuariosService: UsuariosService,
+              private toast: ToastController) { }
 
   ngOnInit() {
   }
 
   crear() {
-    
+    switch (this.recoleccion.tipo){
+      case 'usuario':
+        switch (this.recoleccion.accion){
+            case 'agregar':
+            this.usuariosService.registrarNuevoUsuario(this.recoleccion).then ((Response) =>{
+              if (Response < 0) {
+                this.toast.create({
+                  message: 'El usuario ya existe o es invalido',
+                  duration: 3000,
+                  color: 'danger'
+                })
+                .then((toast) => {
+                  toast.present();
+                });
+              }
+            });
+            break;
+        }
+    }
   }
 
   async presentToast() {
