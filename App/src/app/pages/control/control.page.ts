@@ -59,32 +59,113 @@ export class ControlPage implements OnInit {
     switch (this.recoleccion.tipo){
       case 'usuario':
         switch (this.recoleccion.accion){
-            case 'agregar':
-            this.usuariosService.registrarNuevoUsuario(this.recoleccion).then ((Response) =>{
-              if (Response < 0) {
+            case 'agregar':  
+            //console.log(this.recoleccion);
+            this.usuariosService.CrearResidente(this.recoleccion).then ((Response) =>{
+              if (Response["id"]) {
+                this.toast.create({
+                  message: 'El usuario fue creado con exito',
+                  duration: 3000,
+                })
+                .then((toast) => {
+                  toast.present();
+                });
+              } else {
                 this.toast.create({
                   message: 'El usuario ya existe o es invalido',
                   duration: 3000,
                   color: 'danger'
                 })
-                .then((toast) => {
-                  toast.present();
+                .then((toast) =>{
+                  toast.present()
                 });
               }
             });
             break;
+
+            case 'eliminar':
+              this.usuariosService.borrarResidente(this.recoleccion).then ((Response) => {});
+              break;
+
+            case 'actualizar':
+              this.usuariosService.actualizarResidente(this.recoleccion).then ((Response) => {});
+              break;
         }
+        break;
+
+      case 'administrador':
+        switch (this.recoleccion.accion){
+          case 'agregar':  
+            //console.log(this.recoleccion);
+            this.usuariosService.crearAdministrador(this.recoleccion).then ((Response) =>{
+              if (Response["id"]) {
+                this.toast.create({
+                  message: 'El usuario fue creado con exito',
+                  duration: 3000,
+                })
+                .then((toast) => {
+                  toast.present();
+                });
+              } else {
+                this.toast.create({
+                  message: 'El usuario ya existe o es invalido',
+                  duration: 3000,
+                  color: 'danger'
+                })
+                .then((toast) =>{
+                  toast.present()
+                });
+              }
+            });
+            break;
+
+            case 'eliminar':
+              this.usuariosService.borrarAdministrador(this.recoleccion).then ((Response) => {});
+              break;
+
+            case 'actualizar':
+              this.usuariosService.actualizarAdministrador(this.recoleccion).then ((Response) => {});
+              break;
+        }
+        break;
+
+        case 'celador':
+          switch (this.recoleccion.accion){
+            case 'agregar':
+              //console.log(this.recoleccion);
+              this.usuariosService.crearCelador(this.recoleccion).then ((Response) =>{
+                if (Response["id"]) {
+                  this.toast.create({
+                    message: 'El usuario fue creado con exito',
+                    duration: 3000,
+                  })
+                  .then((toast) => {
+                    toast.present();
+                  });
+                } else {
+                  this.toast.create({
+                    message: 'El usuario ya existe o es invalido',
+                    duration: 3000,
+                    color: 'danger'
+                  })
+                  .then((toast) =>{
+                    toast.present()
+                  });
+                }
+              });
+              break;
+
+              case 'eliminar':
+                this.usuariosService.borrarCelador(this.recoleccion).then ((Response) => {});
+                break;
+
+              case 'actualizar':
+                this.usuariosService.actualizarCelador(this.recoleccion).then ((Response) => {});
+                break;
+            }
     }
   }
 
-  async presentToast() {
-
-    const toast = await this.toastCtrl.create({
-      message: 'Cambio exitoso',
-      duration: 2000
-    });
-    toast.present();
-  }
 
 
 }

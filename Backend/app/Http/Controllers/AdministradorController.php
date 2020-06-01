@@ -25,6 +25,7 @@ class AdministradorController extends Controller
         $usuario->turno = $request['turno'];
 
         $usuario->save();
+        return response()->json($usuario);
     }
 
     public function crearResidente(Request $request){
@@ -38,6 +39,7 @@ class AdministradorController extends Controller
         $usuario->telefono = $request['telefono'];
 
         $usuario->save();
+        return response()->json($usuario);
         
     }
 
@@ -50,22 +52,49 @@ class AdministradorController extends Controller
         $usuario->contrasena = md5($request['contrasena']);
 
         $usuario->save();
+        return response()->json($usuario);
         
     }
 
     public function borrarResidente(Request $request){
-        $usuario = Residente::where('cedula',$request['cedula']);
+        $usuario = Residente::where('cedula',$request['cedula'])->first();
         $usuario->delete();
     }
 
     public function borrarAdministrador(Request $request){
-        $usuario = Administrador::where('cedula',$request['cedula']);
+        $usuario = Administrador::where('cedula',$request['cedula'])->first();
         $usuario->delete();
     }
 
     public function borrarCelador(Request $request){
-        $usuario = Celador::where('cedula',$request['cedula']);
+        $usuario = Celador::where('cedula',$request['cedula'])->first();
         $usuario->delete();
     }
+
+    public function actualizarResidente(Request $request){
+       $usuario = Residente::where('cedula',$request['cedula'])->first();
+       $usuario->update(['nombre' => $request->input('nombre'),
+                         'apellidos' => $request->input('apellidos'),
+                         'cedula' => $request->input('cedula'),
+                         'telefono' => $request->input('telefono'),
+                         'casa' => $request->input('casa')
+                         ]);
+    }
+
+    public function actualizarCelador(Request $request){
+        $usuario = Celador::where('cedula',$request['cedula'])->first();
+        $usuario->update(['nombre' => $request->input('nombre'),
+                          'apellidos' => $request->input('apellidos'),
+                          'cedula' => $request->input('cedula'),
+                          'turno' => $request->input('telefono')
+                          ]);
+     }
+     public function actualizarAdministrador(Request $request){
+        $usuario = Administrador::where('cedula',$request['cedula'])->first();
+        $usuario->update(['nombre' => $request->input('nombre'),
+                          'apellidos' => $request->input('apellidos'),
+                          'cedula' => $request->input('cedula')
+                          ]);
+     }
 
 }

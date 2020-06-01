@@ -83,7 +83,7 @@ export class UsuariosService {
     });
   }
 
-  CrearCelador(data) {
+  crearCelador(data) {
     return new Promise((resolve) => {
       // console.log(this.httpOptions)
       this.http
@@ -105,6 +105,123 @@ export class UsuariosService {
       // console.log(this.httpOptions)
       this.http
         .post(this.URL + "api/crear_residente", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+
+  borrarResidente(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/borrar_residente", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+
+  actualizarResidente(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/actualizar_residente", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+
+  crearAdministrador(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/crear_administrador", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+  borrarAdministrador(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/borrar_administrador", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+  actualizarAdministrador(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/actualizar_administrador", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+
+  borrarCelador(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/borrar_celador", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+            resolve(-1);
+          }
+        );
+    });
+  }
+
+  actualizarCelador(data) {
+    return new Promise((resolve) => {
+      // console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/actualizar_celador", data, this.httpOptions)
         .subscribe(
           (data) => {
             resolve(data);

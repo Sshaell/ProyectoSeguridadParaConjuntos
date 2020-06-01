@@ -27,8 +27,15 @@ Route::group(['middleware' => ['cors']], function () {
 
 
     //Admin
-    Route::posto('crear_celador','AdministradorController@crearCelacho');
-    Route::posto('crear_residente','AdministradorController@crearResidente');
+    Route::post('crear_celador','AdministradorController@crearCelacho');
+    Route::post('crear_residente','AdministradorController@crearResidente');
+    Route::post('crear_administrador','AdministradorController@crearAdministrador');
+    Route::post('borrar_administrador','AdministradorController@borrarAdministrador');
+    Route::post('actualizar_administrador','AdministradorController@actualizarAdministrador');
+    Route::post('borrar_residente','AdministradorController@borrarResidente');
+    Route::post('actualizar_residente','AdministradorController@actualizarResidente');
+    Route::post('borrar_celador','AdministradorController@borarCelador');
+    Route::post('actualizar_celador','AdministradorController@actalizarCelador');
 
     //celador
     Route::post('login_celador','CeladorController@login');
