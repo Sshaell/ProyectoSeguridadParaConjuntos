@@ -84,11 +84,28 @@ export class IniciarSesionPage implements OnInit {
                 });
             }
           });
-    }
-  }
+        break;
 
-  goTo() {
-    const tiposUsuario = this.usuariosIniciarSesion.tipoUsuarioIniciarSesion;
-    this.router.navigate([tiposUsuario]);
+        case "/mostrar-usuario":
+          this.usuarioService
+          .loginCelador(this.usuariosIniciarSesion)
+          .then((response) => {
+            if (response > 0) {
+              localStorage.setItem("id_usuario_logueado", "" + response);
+              localStorage.setItem("tipo_usuario", "admin");
+              this.navCtrl.navigateRoot("/mostrar-usuario");
+            } else {
+              this.toast
+                .create({
+                  message: "El usuario o contraseña es incorrecto",
+                  duration: 3000,
+                  color: "danger",
+                })
+                .then((toast) => {
+                  toast.present();
+                });
+            }
+          });
+    }
   }
 }
