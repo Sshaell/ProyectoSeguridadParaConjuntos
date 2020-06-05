@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IniciarSesionPage } from '../iniciar-sesion/iniciar-sesion.page';
 import { EstadoPage } from '../estado/estado.page';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-mostrar-usuario',
@@ -10,21 +11,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MostrarUsuarioPage implements OnInit {
 
-   usuario:
-    {
-      cedula: '' ,
-      acceso: '',
-      casa: '',
-    };
+   registros: any;
+   intervalo: any;
 
+  constructor(private route: ActivatedRoute, private router: Router, private userServices: UsuariosService ) { }
 
-  constructor(private route: ActivatedRoute, private router: Router ) { }
-
-  constructor(private route: ActivatedRoute, private router: Router ) { 
-    
-  }
 
   ngOnInit() {
+    this.intervalo = setInterval(() => {
+      this.userServices.mostrarRegistros().then((response) => {
+        //console.log(response)
+        this.registros = response
+      });
+  }, 5000 );
+
   }
 
 }

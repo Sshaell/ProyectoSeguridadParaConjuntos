@@ -24,6 +24,7 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('registro', 'ResidenteController@registro');
     Route::post('login_residente', 'ResidenteController@login');
     Route::post('login_admin', 'AdministradorController@login');
+    
 
 
     //Admin
@@ -40,5 +41,8 @@ Route::group(['middleware' => ['cors']], function () {
     //celador
     Route::post('login_celador','CeladorController@login');
     
+    //Registro
+    Route::post('mostrar_registros','RegistroController@buscarRegistro');
+    Route::post('registrar_entrada','RegistroControllerr@registro');
 });
 

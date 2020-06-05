@@ -95,8 +95,7 @@ export class ControlPage implements OnInit {
 
       case 'administrador':
         switch (this.recoleccion.accion){
-          case 'agregar':  
-            //console.log(this.recoleccion);
+          case 'agregar':
             this.usuariosService.crearAdministrador(this.recoleccion).then ((Response) =>{
               if (Response["id"]) {
                 this.toast.create({

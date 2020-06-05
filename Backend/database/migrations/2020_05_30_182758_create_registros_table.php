@@ -16,7 +16,7 @@ class CreateRegistrosTable extends Migration
         Schema::create('registros', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tipo');
-            $table->date('fecha');
+            $table->date('fecha')->nullable();
             $table->unsignedBigInteger('residente_id');
             $table->foreign('residente_id')->references('id')->on('residentes');
             $table->timestamps();

@@ -27,4 +27,9 @@ class ResidenteController extends Controller
 
         return response()->json($usuario[0]->id);
     }
+
+    public function consultarUsuarioId(Request $request){
+        $usuario = Residente::find($request['id']);
+        return $usuario;
+    }
 }

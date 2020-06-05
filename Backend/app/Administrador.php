@@ -8,7 +8,7 @@ class Administrador extends Model
 {
     protected $fillable = [
         'nombre',
-        'apellidos',
+        'apellido',
         'cedula',
         'contrasena'
     ];

@@ -1,15 +1,15 @@
-<app-header titulo="Mostrar usuario"></app-header>
+<app-header titulo="Ingreso de Residentes"></app-header>
 
 <ion-content>
-  <ion-title>El usuario que acabo de entrar es:</ion-title>
   <ion-list>
-    <ion-item *ngIf="usuario">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Usuario ingreso</ion-card-title>
-          <ion-card-subtitle>{{usuario.cedula}}</ion-card-subtitle>
+    <ion-item *ngFor="let registro of registros">
+      <ion-card mode="ios">
+        <ion-card-header color="success">
+          <ion-card-title> Ingreso Usuario </ion-card-title>
+          <ion-card-subtitle>{{registro['residente']['nombre']}} {{registro['residente']['apellidos']}}</ion-card-subtitle>
         </ion-card-header>
-        <ion-card-subtitle>{{usuario.acceso}}</ion-card-subtitle>
+        <ion-card-subtitle>{{registro['fecha']}}</ion-card-subtitle>
+        <ion-card-content>El usuario que ingreso fue {{registro['residente']['nombre']}} {{registro['residente']['apellidos']}} y su casa es {{registro['residente']['casa']}}</ion-card-content>
       </ion-card>
     </ion-item>
   </ion-list>

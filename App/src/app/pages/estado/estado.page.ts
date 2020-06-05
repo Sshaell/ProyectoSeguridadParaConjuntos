@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { UsuariosService } from '../../services/usuarios.service';
+
 
 
 @Component({
@@ -10,15 +12,45 @@ import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 })
 export class EstadoPage implements OnInit {
 
-  dinamica: number = 1234;
-  claveIngresada: number;
-  entradaValida: boolean = false;
-  
-  constructor(public alertCtrl: AlertController, private router: Router){}
+  usuario: any = {
+    id_usuario: parseInt(localStorage.getItem('id_usuario_logueado'), 10),
+    entrada: 'entrar'
+  };
+
+  constructor(public alertCtrl: AlertController, 
+              private router: Router, 
+              private usuariosService: UsuariosService,
+              private toast: ToastController){}
 
   ngOnInit() {
+
   }
-  async presentInput( ) {
+
+  presentInput(){
+    console.log(this.usuario);
+    this.usuariosService.enviarIdUsuario(this.usuario).then((Response) =>{
+      if (Response["id"]) {
+        this.toast.create({
+          message: 'Bienvenido a Casa',
+          duration: 3000,
+        })
+        .then((toast) => {
+          toast.present();
+        });
+      } else {
+        this.toast.create({
+          message: 'Surgió un problema, vuelve a intentar',
+          duration: 3000,
+          color: 'danger'
+        })
+        .then((toast) =>{
+          toast.present()
+        });
+      }
+    });
+  }
+
+  /*async presentInput( ) {
     const input = await this.alertCtrl.create({
       header: 'Ingreso clave dinamica',
       inputs: [
@@ -45,7 +77,7 @@ export class EstadoPage implements OnInit {
         }
       }
     ]
-  });
+  }); 
 
     if (this.claveIngresada === this.dinamica) {
       this.entradaValida = true;
@@ -55,6 +87,6 @@ export class EstadoPage implements OnInit {
     }
     await input.present();
 }
-
+ */
 
 }

@@ -1,6 +1,9 @@
-<app-header titulo="Inicio de sesión"></app-header>
+<app-back-button titulo="Inicio de sesión"> </app-back-button>
 
 <ion-content>
+    <ion-item>
+        <ion-img src='../assets/safegate.png'></ion-img>
+    </ion-item>
     <form #formulario="ngForm" (ngSubmit)="login()">
         <ion-list>
             <ion-item>
@@ -32,3 +35,9 @@
 
     </form>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <ion-title>Seguridad en tu puerta</ion-title>
+    </ion-toolbar>
+  </ion-footer>

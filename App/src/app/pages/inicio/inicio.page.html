@@ -7,15 +7,25 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-img src='../assets/safegate.png'></ion-img>
+  </ion-item>
   <ion-col>
-    <ion-button expand="full" color="tertiary" routerLink='/iniciar-sesion'>
+    <ion-button expand="full" color="secondary" shape="round" routerLink='/iniciar-sesion'>
       <ion-icon slot="start" name="log-in-outline"></ion-icon>
       <ion-label>Iniciar Sesión</ion-label>
     </ion-button>
 
-    <ion-button expand="full" routerLink='/registro'>
+    <ion-button expand="full" color="secondary"  shape="round" routerLink='/registro'>
       <ion-icon slot=start name="person-add-outline"></ion-icon>
       <ion-label>Registro</ion-label>
     </ion-button>
   </ion-col>
+
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Seguridad en tu puerta</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class UsuariosService {
   httpOptions: any;
-  URL: string = "http://localhost:8000/";
+  URL: string = 'http://127.0.0.1:8000/';/*"https://safegate.frb.io/"*/
 
   constructor(private http: HttpClient) {
     this.httpOptions = {
@@ -234,5 +234,36 @@ export class UsuariosService {
     });
   }
 
+  enviarIdUsuario(data) {
+    return new Promise((resolve) => {
+      //console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/registrar_entrada", data, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    });
+  }
+
+  mostrarRegistros() {
+    return new Promise((resolve) => {
+      //console.log(this.httpOptions)
+      this.http
+        .post(this.URL + "api/mostrar_registros", null, this.httpOptions)
+        .subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    });
+  }
 
 }

@@ -47,7 +47,7 @@ class AdministradorController extends Controller
         $usuario = new Administrador;
 
         $usuario->nombre = $request['nombre'];
-        $usuario->apellidos = $request['apellido'];
+        $usuario->apellido = $request['apellido'];
         $usuario->cedula = $request['cedula'];
         $usuario->contrasena = md5($request['contrasena']);
 

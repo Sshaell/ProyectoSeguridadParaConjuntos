@@ -12,13 +12,14 @@ import { ComponentsModule } from './components/components.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
     ComponentsModule,
     HttpClientModule
   ],
