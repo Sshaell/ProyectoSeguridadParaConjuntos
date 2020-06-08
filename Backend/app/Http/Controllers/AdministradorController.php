@@ -74,7 +74,7 @@ class AdministradorController extends Controller
     public function actualizarResidente(Request $request){
        $usuario = Residente::where('cedula',$request['cedula'])->first();
        $usuario->update(['nombre' => $request->input('nombre'),
-                         'apellidos' => $request->input('apellidos'),
+                         'apellidos' => $request->input('apellido'),
                          'cedula' => $request->input('cedula'),
                          'telefono' => $request->input('telefono'),
                          'casa' => $request->input('casa')
@@ -84,7 +84,7 @@ class AdministradorController extends Controller
     public function actualizarCelador(Request $request){
         $usuario = Celador::where('cedula',$request['cedula'])->first();
         $usuario->update(['nombre' => $request->input('nombre'),
-                          'apellidos' => $request->input('apellidos'),
+                          'apellidos' => $request->input('apellido'),
                           'cedula' => $request->input('cedula'),
                           'turno' => $request->input('telefono')
                           ]);
@@ -92,7 +92,7 @@ class AdministradorController extends Controller
      public function actualizarAdministrador(Request $request){
         $usuario = Administrador::where('cedula',$request['cedula'])->first();
         $usuario->update(['nombre' => $request->input('nombre'),
-                          'apellidos' => $request->input('apellidos'),
+                          'apellidos' => $request->input('apellido'),
                           'cedula' => $request->input('cedula')
                           ]);
      }

@@ -13,11 +13,21 @@ class RegistroController extends Controller
         $usuario->tipo = $request['entrada'];
         $usuario->residente_id = $request['id_usuario'];
         $usuario->save();
+
         return response()->json($usuario);
     }
 
     public function buscarRegistro(Request $request){
-        $usuario = Registro::all();
-        return response() ->json($usuario);
+        $registros = Registro::all();
+
+        $respuesta = [];
+
+        foreach($registros as $registro){
+            $res = ['residente' => $registro->residente, 'fecha'=>$registro->created_at, 'tipo' => $registro->tipo];
+            array_push($respuesta, $res); 
+        }
+
+        return response() ->json($respuesta);
     }
+
 }

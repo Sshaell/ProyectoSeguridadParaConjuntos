@@ -28,8 +28,21 @@ class ResidenteController extends Controller
         return response()->json($usuario[0]->id);
     }
 
+    
     public function consultarUsuarioId(Request $request){
         $usuario = Residente::find($request['id']);
         return $usuario;
+    }
+    
+    public function correos(Request $request){
+        $usuario = consultarUsuarioId($request);
+        $datos = [
+            "titulo" => 'Bienvenido a casa',
+            "contenido" => 'La clave dinámica para entrar a tu casa es:'
+        ];
+    
+        Mail::send('estado',$datos,function ($mensaje){
+            $mensaje->to(correo, "karen")->subject("clave dinámica");
+        });
     }
 }

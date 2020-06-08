@@ -18,4 +18,5 @@ class Residente extends Model
     protected $hidden = [
         'contrasena'
     ];
+
 }

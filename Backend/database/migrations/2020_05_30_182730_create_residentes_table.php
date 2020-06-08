@@ -21,7 +21,6 @@ class CreateResidentesTable extends Migration
             $table->string('contrasena');
             $table->string('telefono');
             $table->string('casa');
-            $table->string('huellaDactilar')->nullable();
             $table->timestamps();
         });
     }

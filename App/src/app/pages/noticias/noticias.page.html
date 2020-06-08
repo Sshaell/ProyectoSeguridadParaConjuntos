@@ -1,18 +1,33 @@
 <app-header titulo="Noticias"></app-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let n of noticias">
+ 
+    <ion-item>
       <ion-card mode="ios">
+        <ion-img src="\assets\dinero.jpg"></ion-img>
         <ion-card-header color="secondary">
-          <ion-card-title>{{n.titulo}}</ion-card-title>
+          <ion-card-title>Pago administración</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          {{n.texto}}
+          Recuerde hacer el pago de la administración en los primeros cincos días del mes
         </ion-card-content>
       </ion-card>
     </ion-item>
-  </ion-list>
+
+
+    <ion-item>
+      <ion-card mode="ios">
+        <ion-img src="\assets\casa.jpg"></ion-img>
+        <ion-card-header color="secondary">
+          <ion-card-title>Reunión del conjunto</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Recuerde asistir a la reunión de la unidad el segundo domingo de cada mes
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+ 
+ 
 </ion-content>
 
 

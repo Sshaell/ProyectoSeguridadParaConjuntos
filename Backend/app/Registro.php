@@ -8,7 +8,10 @@ class Registro extends Model
 {
     protected $fillable = [
         'tipo',
-        'fecha',
         'residente_id'
     ];
+
+    public function residente() {
+        return $this->belongsTo(Residente::class);
+    }
 }
