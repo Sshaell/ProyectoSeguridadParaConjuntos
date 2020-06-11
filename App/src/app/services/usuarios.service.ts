@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UsuariosService {
   httpOptions: any;
-  URL: string = 'http://127.0.0.1:8000/';/*"https://safegate.frb.io/"*/
+  URL: string = 'https://safegateco.frb.io/'; //'http://127.0.0.1:8000/';
 
   constructor(private http: HttpClient) {
     this.httpOptions = {
